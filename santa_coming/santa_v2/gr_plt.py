@@ -41,25 +41,20 @@ def plot_data(lidar_x, lidar_y, encoder_x, encoder_y):
 
     # Ground truth trajectory points
     ground_truth_points = [
-        (1.14, -0.346),
-        (1.04, -1.54),
-        (0.12, -1.31),
-        (0.28, -0.33),
-        (0.73, -0.37)
+        (1.13, -0.37),
+        (1.20, -1.44),
+        (0.10, -1.41),
+        (0.42, -0.36),
+        (0.97, -0.39)
     ]
     ground_truth_x = [p[0] for p in ground_truth_points]
     ground_truth_y = [p[1] for p in ground_truth_points]
     
     plt.figure(figsize=(10, 8))
     plt.scatter(lidar_x, lidar_y, color='blue', label='LiDAR Data')
-    plt.scatter(encoder_x, encoder_y, color='red', label='Transformed Encoder Data')
-    plt.plot(ground_truth_x, ground_truth_y, color='green', marker='o', linestyle='-', label='Ground Truth Trajectory')
-    #plt.plot(
-      #  [ground_truth_x[0], ground_truth_x[-1]],
-     #   [ground_truth_y[0], ground_truth_y[-1]],
-       # color='purple', linestyle='--', label='First to Fifth Point'
-    #)
-    plt.title("Alignment of LiDAR, Encoder, and Ground Truth Trajectory")
+    plt.scatter(encoder_x, encoder_y, color='red', label='Encoder Data')
+    plt.plot(ground_truth_x, ground_truth_y, color='green', marker='o', linestyle='-', label='Ground Truth')
+    plt.title("Robot Trajactories estimated by LiDAR, Encoder, and Ground Truth")
     plt.xlabel("X Position (m)")
     plt.ylabel("Y Position (m)")
     plt.legend()
